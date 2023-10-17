@@ -124,3 +124,35 @@ body{
     padding: 1rem;
     margin-bottom: 1rem;
 }
+.bg-light { 
+    background: #f4f4f4;
+     color: #333;
+}
+.bg-dark {background:#333;
+     color: #fff;
+}
+
+.p-1{
+    padding: 1.5rem;
+} 
+
+.p-2{
+padding: 1.5rem;
+}
+.list { margin: 0.5rem 0;
+     list-style: none;
+}
+.p-3 { padding: 3rem; }
+.list li {
+padding: 0.5rem 0;
+border-bottom: #444 dotted 1px;
+}
+#who { 
+    display: flex;
+}
+#who div { 
+    flex: 1;
+}
+#who .who-img{
+    content: url(../img/james.jpg)
+}
