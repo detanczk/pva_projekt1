@@ -22,6 +22,8 @@ body{
     justify-content: space-between;
     padding: 1rem;
     flex-wrap: wrap;
+    position: sticky;
+    top: 0;
 }
 #navbar a {
     color: white; text-decoration: none;
@@ -153,6 +155,24 @@ border-bottom: #444 dotted 1px;
 #who div { 
     flex: 1;
 }
-#who .who-img{
-    content: url(../img/james.jpg)
+#table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#table th {
+    background-color: rgb(198, 0, 0);
+    color: #000000;
+    font-weight: bold;
+    padding: 8px;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+}
+
+#table td {
+    background-color: #fff;
+    color: #333;
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
 }
