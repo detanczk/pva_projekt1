@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Hunt | britský závodní jezdec</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav id="navbar">
+        <div id="logo"><a href="index.html"><i class="fa-solid fa-car-side"></i><span class="text-primary">James Hunt</span> | závodník</a></div>
+        <ul>
+            <li><a href="index.html#showcase">Úvod</a></li>
+            <li><a href="index.html#what">Základní informace</a></li>
+            <li><a href="index.html#who">Kdo to byl?</a></li>
+            <li><a href="index.html#contact">historie závodů</a></li>
+            <li><a href="email.php">kontakt</a></li>
+        </ul>
+    </nav>
+    <h1>Kontaktní formulář</h1>
+    <form  onsubmit="return checkform(this);">
+        <label for="jmeno">Jméno:</label><br>
+        <input type="text" id="jmeno" name="jmeno"><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+        <label for="zprava">Zpráva:</label><br>
+        <textarea id="zprava" name="zprava" rows="4" cols="50"></textarea><br>
+        <input type="checkbox" id="newsletter" name="newsletter" value="newsletter">
+        <label for="dokumentace">chceš odebírat nejnovější informace z efjednotky?</label><br>
+        <input type="submit" value="Odeslat">
+<br>
+<div class="capbox">
+
+<div id="CaptchaDiv"></div>
+
+<div class="capbox-inner">
+Type the number:<br>
+
+<input type="hidden" id="txtCaptcha">
+<input type="text" name="CaptchaInput" id="CaptchaInput" size="15"><br>
+
+</div>
+</div>
+<br><br>
+</form>
+<script type="text/javascript">
+
+    // Captcha Script
+    
+    function checkform(theform){
+    var why = "";
+    
+    if(theform.CaptchaInput.value == ""){
+    why += "- Please Enter CAPTCHA Code.\n";
+    }
+    if(theform.CaptchaInput.value != ""){
+    if(ValidCaptcha(theform.CaptchaInput.value) == false){
+    why += "- The CAPTCHA Code Does Not Match.\n";
+    }
+    }
+    if(why != ""){
+    alert(why);
+    return false;
+    }
+    }
+    
+    var a = Math.ceil(Math.random() * 9)+ '';
+    var b = Math.ceil(Math.random() * 9)+ '';
+    var c = Math.ceil(Math.random() * 9)+ '';
+    var d = Math.ceil(Math.random() * 9)+ '';
+    var e = Math.ceil(Math.random() * 9)+ '';
+    
+    var code = a + b + c + d + e;
+    document.getElementById("txtCaptcha").value = code;
+    document.getElementById("CaptchaDiv").innerHTML = code;
+    
+    // Validate input against the generated number
+    function ValidCaptcha(){
+    var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+    var str2 = removeSpaces(document.getElementById('CaptchaInput').value);
+    if (str1 == str2){
+    return true;
+    }else{
+    return false;
+    }
+    }
+    
+    // Remove the spaces from the entered and generated code
+    function removeSpaces(string){
+    return string.split(' ').join('');
+    }
+    </script>
+    
+</body>
+</html>
